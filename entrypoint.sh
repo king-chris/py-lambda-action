@@ -4,7 +4,7 @@ set -e
 install_zip_dependencies(){
 	echo "Installing and zipping dependencies..."
 	mkdir python
-	docker run -v "$PWD":/var/task "lambci/lambda:build-python3.7" /bin/sh -c "pip install -r ${INPUT_REQUIREMENTS_TXT}"
+	docker run -v "$PWD":/var/task "lambci/lambda:build-python3.8" /bin/sh -c "pip install -r ${INPUT_REQUIREMENTS_TXT}"
 	zip -r dependencies.zip ./python
 }
 
